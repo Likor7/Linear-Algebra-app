@@ -1,12 +1,12 @@
-const generateRandom = (event) => {
+const generateRandom = (event, id) => {
     event.preventDefault();
-    const inputs = document.querySelectorAll("#form-inputs input");
+    const inputs = document.querySelectorAll("#" + id + " input");
 
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].removeAttribute("required");
     }
-  
-    const min = 0.0;
+
+    const min = -10.0;
     const max = 10.0;
 
     for (let i = 0; i < inputs.length; i++) {
@@ -20,4 +20,4 @@ const generateRandom = (event) => {
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].setAttribute("required", "");
     }
-  }
+}

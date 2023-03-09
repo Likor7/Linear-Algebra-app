@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% block content %}
-<div class="container">
-   <form class="form" id="form-inputs" role="form" action="{{ url_for('calc.calculator_post') }}" method="POST"
+<div class="container mt-3">
+   <form class="form" id="form-inputs" role="form" action="{{ url_for('systems_calc.calculator_post') }}" method="POST"
       autocomplete="off">
 
       <div class="d-flex justify-content-around align-items-center flex-wrap">
-         <div class="matrix-table" id="matrix-table">
+         <div class="matrix-table">
             <math>
                <mrow>
                   <mo>[</mo>
@@ -40,16 +40,13 @@
          </div>
       </div>
       <div class="row-column-buttons d-flex justify-content-center flex-wrap">
-         <button type="button" class="btn btn-outline-success m-2" onclick="addRow()">+ Row</button>
-         <button type="button" class="btn btn-outline-danger  m-2" onclick="removeRow()">- Row</button>
-
-         <button type="button" class="btn btn-outline-success m-2" onclick="addColumn()">+ Column</button>
-         <button type="button" class="btn btn-outline-danger m-2" onclick="removeColumn()">- Column</button>
+         <button type="button" class="btn btn-outline-success m-2" onclick="addSystem()">+</button>
+         <button type="button" class="btn btn-outline-danger m-2" onclick="removeSystem()">-</button>
       </div>
       <div class="control-buttons row-column-buttons d-flex justify-content-center flex-wrap">
          <button class="btn btn-primary m-2" name="calc_button" value="Calculate" type="submit">Calculate</button>
          <button class="btn btn-primary m-2" name="save_button" value="Save" type="submit">Save Matrix</button>
-         <button class="btn btn-primary m-2" onclick="generateRandom(event)">Randomize</button>
+         <button class="btn btn-primary m-2" onclick="generateRandom(event, 'form-inputs')">Randomize</button>
       </div>
    </form>
 </div>
@@ -58,7 +55,7 @@
 {{ result }}
 {% endif %}
 
-<script src="{{ url_for('static', filename='js/creationTable.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/creationSystems.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='js/random.js') }}" type="text/javascript"></script>
 {% if result or uploaded %}
 <script>
@@ -75,5 +72,18 @@
    init(rows, cols);
 </script>
 {% endif %}
-<script src="{{ url_for('static', filename='js/rowcolumnControl.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/control.js') }}" type="text/javascript"></script>
+<script>
+   const addSystem = () => {
+      addRowMatrix("matrix-inputs");
+      addRowVectors();
+      addColumnMatrix("matrix-inputs");
+   }
+
+   const removeSystem = () => {
+      removeRowMatrix("matrix-inputs", 'a');
+      removeRowVectors();
+      removeColumnMatrix("matrix-inputs", 'a');
+   }
+</script>
 {% endblock %}

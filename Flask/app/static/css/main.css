@@ -5,14 +5,19 @@ body {
   height: 100%;
   width: auto;
 }
+
 * {
-    border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 
-.main-layout{
+.main-layout {
   min-height: 100vh;
   min-height: 100dvh;
 
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+.calc-A-B {
+  align-items: stretch;
 }

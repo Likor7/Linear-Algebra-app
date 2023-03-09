@@ -5,7 +5,12 @@ from werkzeug.exceptions import HTTPException
 
 def create_app(environment="development"):
     from config import config
-    from app.views import main_blueprint, calc_blueprint
+    from app.views import (
+        main_blueprint,
+        systems_calc_blueprint,
+        matrix_calc_blueprint,
+        upload_blueprint,
+    )
 
     # Instantiate app
     app = Flask(__name__)
@@ -17,7 +22,9 @@ def create_app(environment="development"):
 
     # Register blueprints here
     app.register_blueprint(main_blueprint)
-    app.register_blueprint(calc_blueprint)
+    app.register_blueprint(systems_calc_blueprint)
+    app.register_blueprint(matrix_calc_blueprint)
+    app.register_blueprint(upload_blueprint)
 
     @app.errorhandler(HTTPException)
     def handle_http_error(exc):

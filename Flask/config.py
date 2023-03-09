@@ -7,6 +7,7 @@ class BaseConfig:
     """Base configuration"""
 
     APP_NAME = os.getenv("APP_NAME", "Linear Algebra app")
+    SECRET_KEY = os.getenv("SECRET_KEY", "Ensure you set a secret key!")
 
     @staticmethod
     def configure(app):

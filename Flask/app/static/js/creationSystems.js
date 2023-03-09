@@ -52,7 +52,6 @@ const init = (rowsN, colsN) => {
 }
 
 const init_matrix = (rowsN, colsN, data, data_b) => {
-    console.log("LOX")
     let table = document.getElementById("matrix-inputs");
     let vector = document.getElementById("vector-inputs");
 

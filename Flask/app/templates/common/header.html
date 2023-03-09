@@ -13,11 +13,13 @@
         <!-- Main Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('calc.calculator')}}"> Calculator </a>
-
+            <a class="nav-link" href="{{ url_for('matrix_calc.calculator')}}"> Matrix Calculator </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('systems_calc.calculator')}}"> System of Equations Calculator </a>
           </li>
           <li>
-            <a class="nav-link" href="{{ url_for('calc.upload')}}"> Upload </a>
+            <a class="nav-link" href="{{ url_for('upload.upload')}}"> Upload </a>
           </li>
         </ul>
         <!-- Login/Logout -->
